@@ -1,1 +1,9 @@
-http://dbanet.github.io/dump_viewer-os2
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║Dump Viewer/2 v1.0                                                                            ║
+╠═════════════════════════════════╦════════════════════════════════════════════════════════════╣
+║Read me (WWW)                    ║ http://dbanet.github.io/dump_viewer-os2                    ║
+║Read me (saved locally, MAFF)    ║ ./README.MAFF                                              ║
+║OS/2 binary distribution download║ http://dl.bintray.com/dbanet/generic/DumpViewer-OS2-1.0.zip║
+║OS/2 fork sources                ║ https://github.com/dbanet/dump_viewer-os2/tarball/master   ║
+║Original repository              ║ https://bitbucket.org/ratnik/dump_viewer                   ║
+╚═════════════════════════════════╩════════════════════════════════════════════════════════════╝
