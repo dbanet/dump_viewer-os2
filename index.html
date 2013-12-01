@@ -17,18 +17,21 @@
       <header>
         <h1>Dump Viewer/2</h1>
         <p>rutracker.org database dump viewer fork for OS/2</p>
+
+        <p class="view"><a href="https://github.com/dbanet/dump_viewer-os2">View the Project on GitHub <small>dbanet/dump_viewer-os2</small></a></p>
+
+
         <ul>
-          <li style="width:85px !important"><a href="https://github.com/dbanet/dump_viewer-os2/zipball/master">Download <strong>OS/2 Binary</strong></a></li>
-          <li style="width:85px !important"><a href="https://github.com/dbanet/dump_viewer-os2/zipball/master">Download <strong>Source TAR</strong></a></li>
-          <li style="width:55px !important"><a href="https://github.com/dbanet/dump_viewer-os2">View On <strong>GitHub</strong></a></li>
-          <li style="width:82px !important"><a href="https://github.com/dbanet/dump_viewer-os2">Go to <strong>fork origin</strong></a></li>
+          <li><a href="https://github.com/dbanet/dump_viewer-os2/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/dbanet/dump_viewer-os2/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/dbanet/dump_viewer-os2">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
       <section>
         <h1>
 <a name="%D0%9E-dump_viewer-os2" class="anchor" href="#%D0%9E-dump_viewer-os2"><span class="octicon octicon-link"></span></a>О dump_viewer-os2</h1>
 
-<p>Это -- форк nokde-experimental ветки <a href="https://bitbucket.org/ratnik/dump_viewer">данного</a> репозитория.</p>
+<p>Это FORK nokde-experimental ветки <a href="https://bitbucket.org/ratnik/dump_viewer">данного</a> репозитория:</p>
 
 <p>Данный форк был сделан по просьбе автора проекта -- <a href="https://bitbucket.org/ratnik">ratnik</a>, поскольку поддержка исходным проектом IBM OS/2 (eComStation) оказалась слишком обременительна для команды разработчиков.
 Таким образом я буду пытаться поддерживать данный форк на одном уровне с оригинальным dump_viewer, периодически сливаясь с новейшим кодом, внося необходимые изменения, делая билды для OS/2 и, возможно, добавляя новые фичи.
@@ -62,14 +65,14 @@ OS/2-specific баги прошу репортить сюда.
 <h2>
 <a name="%D0%A0%D0%B0%D0%B7%D0%B1%D0%BE%D1%80-%D0%BF%D1%83%D0%BD%D0%BA%D1%82%D0%BE%D0%B2-%D0%BC%D0%B5%D0%BD%D1%8E" class="anchor" href="#%D0%A0%D0%B0%D0%B7%D0%B1%D0%BE%D1%80-%D0%BF%D1%83%D0%BD%D0%BA%D1%82%D0%BE%D0%B2-%D0%BC%D0%B5%D0%BD%D1%8E"><span class="octicon octicon-link"></span></a>Разбор пунктов меню</h2>
 
-<ul id="menuOptions">
+<ul>
 <li>Файл</li>
-<li><ul><li>Выбрать базу: указываете путь к файлу final.txt, final.txt.gz или final.txt.bz2, в котором хранится список раздач.</li></li></ul>
-<li><ul><li>Распаковать базу: выбраннй в предыдущем пункте файл final.txt.gz или final.txt.bz2 распаковывается в final.txt, чтобы поиск по нему ускорился. Выбирать final.txt при помощи "Файл - Выбрать базу" после этого не требуется.</li></li></ul>
-<li><ul><li>Выбрать базу описаний: указываете путь к папке, в которой лежат описания (папки 001, 002 и т.д.). Описание раздачи с номером 1234567 лежит в файле 012/01234.tar.gz/01234567 в кодировке UTF-8.</li></li></ul>
+<li>* Выбрать базу: указываете путь к файлу final.txt, final.txt.gz или final.txt.bz2, в котором хранится список раздач.</li>
+<li>* Распаковать базу: выбраннй в предыдущем пункте файл final.txt.gz или final.txt.bz2 распаковывается в final.txt, чтобы поиск по нему ускорился. Выбирать final.txt при помощи "Файл - Выбрать базу" после этого не требуется.</li>
+<li>* Выбрать базу описаний: указываете путь к папке, в которой лежат описания (папки 001, 002 и т.д.). Описание раздачи с номером 1234567 лежит в файле 012/01234.tar.gz/01234567 в кодировке UTF-8.</li>
 <li>Вид</li>
-<li><ul><li>base32-хеши: отображать в колонке "хеш" base32-запись хеша. Без этой галочки отображаются HEX-хеши. Большинству клиентов нет разницы, в каком формате хеш, но есть те, которым нужен только base32 (Vuze, к примеру). HEX-хеш считается более современным.</li></li></ul>
-<li><ul><li>Кодировка cp1251: не выбирайте эту опцию. Она заставит программу считать, что файл final.txt закодирован в cp1251. Опция оставлена для совместимости с предыдущим форматом final.txt.</li></li></ul>
+<li>* base32-хеши: отображать в колонке "хеш" base32-запись хеша. Без этой галочки отображаются HEX-хеши. Большинству клиентов нет разницы, в каком формате хеш, но есть те, которым нужен только base32 (Vuze, к примеру). HEX-хеш считается более современным.</li>
+<li>* Кодировка cp1251: не выбирайте эту опцию. Она заставит программу считать, что файл final.txt закодирован в cp1251. Опция оставлена для совместимости с предыдущим форматом final.txt.</li>
 </ul><p>Настройки программа хранит в файле dump_viewer.ini, расположенном в папке с программой.</p>
 
 <h2>
@@ -80,8 +83,8 @@ OS/2-specific баги прошу репортить сюда.
 <h2>
 <a name="%D0%94%D0%BB%D1%8F-%D0%BB%D0%B8%D0%BD%D1%83%D0%BA%D1%81%D0%BE%D0%B8%D0%B4%D0%BE%D0%B2" class="anchor" href="#%D0%94%D0%BB%D1%8F-%D0%BB%D0%B8%D0%BD%D1%83%D0%BA%D1%81%D0%BE%D0%B8%D0%B4%D0%BE%D0%B2"><span class="octicon octicon-link"></span></a>Для линуксоидов</h2>
 
-<p>Есть исходники, и вы всегда можете собрать сами (инструкции в INSTALL).<br />
-Для ленивых обладателей 32-битных систем в раздаче есть бинарник dump_viewer. Требует Qt и kdelibs. Ну или всегда можно использовать (z)grep.<br />
+<p>Есть исходники, и вы всегда можете собрать сами (инструкции в INSTALL).
+Для ленивых обладателей 32-битных систем в раздаче есть бинарник dump_viewer. Требует Qt и kdelibs. Ну или всегда можно использовать (z)grep.
 Для 64-битных линуксов бинарников нет.</p>
 
 <h2>
@@ -93,24 +96,23 @@ OS/2-specific баги прошу репортить сюда.
 <a name="%D0%9E%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5" class="anchor" href="#%D0%9E%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5"><span class="octicon octicon-link"></span></a>Остальное</h2>
 
 <p>Исходники: <a href="https://bitbucket.org/ratnik/dump_viewer">https://bitbucket.org/ratnik/dump_viewer</a>
-<br />
 <em>Прим. автора форка: исходники форка:</em> <a href="https://github.com/dbanet/dump_viewer-os2">https://github.com/dbanet/dump_viewer-os2</a>
-<br />
-Разные ссылки: links.txt<br />
-Инструкции по сборке: INSTALL<br />
-Ссылки на раздачи и файлообменники: links.txt<br />
-sha256-хеши всех файлов раздачи: sha256.txt<br />
-Актуальный sha256.txt и sha256.txt.asc можно взять в торренте и тут: <a href="https://bitbucket.org/ratnik/dump_viewer/downloads">https://bitbucket.org/ratnik/dump_viewer/downloads</a>
-Проверить (в папке с торрентом): sha256sum -c sha256.txt<br />
-GPG fingerprint: C567 227F 6D75 014E CDC0  FE7B E0F9 25D1 E020 95A4<br />
-GPG key E02095A4: ratnik.gpg<br />
-импортировать ключ: gpg --import ratnik.gpg<br />
-GPG-подпись файла sha256.txt: sha256.txt.asc<br />
-проверить подпись: gpg --verify sha256.txt.asc<br />
-e-mail: <a href="mailto:sir.ratnik@yandex.ru">sir.ratnik@yandex.ru</a><br />
-Jabber: <a href="mailto:sir.ratnik@ya.ru">sir.ratnik@ya.ru</a><br />
-конференция <a href="mailto:torrents-database@conference.jabber.no">torrents-database@conference.jabber.no</a><br />
-OTR fingerprint: 7503B021 02E30FEA 88861B43 7AB21676 35704DBA</p><br />
+Разные ссылки: links.txt
+Инструкции по сборке: INSTALL
+Ссылки на раздачи и файлообменники: links.txt
+sha256-хеши всех файлов раздачи: sha256.txt
+    актуальный sha256.txt и sha256.txt.asc можно взять в торренте
+    и тут: <a href="https://bitbucket.org/ratnik/dump_viewer/downloads">https://bitbucket.org/ratnik/dump_viewer/downloads</a>
+    проверить (в папке с торрентом): sha256sum -c sha256.txt
+GPG fingerprint: C567 227F 6D75 014E CDC0  FE7B E0F9 25D1 E020 95A4
+GPG key E02095A4: ratnik.gpg
+    импортировать ключ: gpg --import ratnik.gpg
+GPG-подпись файла sha256.txt: sha256.txt.asc
+    проверить подпись: gpg --verify sha256.txt.asc
+e-mail: <a href="mailto:sir.ratnik@yandex.ru">sir.ratnik@yandex.ru</a>
+Jabber: <a href="mailto:sir.ratnik@ya.ru">sir.ratnik@ya.ru</a>
+конференция <a href="mailto:torrents-database@conference.jabber.no">torrents-database@conference.jabber.no</a>
+OTR fingerprint: 7503B021 02E30FEA 88861B43 7AB21676 35704DBA</p>
 
 <h2>
 <a name="%D0%9E%D1%81%D1%82%D0%B0%D0%B2%D0%B0%D0%B9%D1%82%D0%B5%D1%81%D1%8C-%D0%BD%D0%B0-%D1%80%D0%B0%D0%B7%D0%B4%D0%B0%D1%87%D0%B5" class="anchor" href="#%D0%9E%D1%81%D1%82%D0%B0%D0%B2%D0%B0%D0%B9%D1%82%D0%B5%D1%81%D1%8C-%D0%BD%D0%B0-%D1%80%D0%B0%D0%B7%D0%B4%D0%B0%D1%87%D0%B5"><span class="octicon octicon-link"></span></a>Оставайтесь на раздаче!</h2>

@@ -46,7 +46,7 @@ a small {
 }
 
 .wrapper {
-  width:100%;
+  width:860px;
   margin:0 auto;
 }
 
@@ -96,7 +96,7 @@ img {
 }
 
 header {
-  width:30%;
+  width:270px;
   float:left;
   position:fixed;
 }
@@ -118,7 +118,7 @@ header ul {
   border-radius:5px;
   border:1px solid #d2d2d2;
   box-shadow:inset #fff 0 1px 0, inset rgba(0,0,0,0.03) 0 -1px 0;
-  width:312px;
+  width:270px;
 }
 
 header li {
@@ -143,12 +143,12 @@ strong {
   font-weight:700;
 }
 
-header ul li + li + li{
+header ul li + li {
   width:88px;
   border-left:1px solid #fff;
 }
 
-header ul li + li + li + li {
+header ul li + li + li {
   border-right:none;
   width:89px;
 }
@@ -160,7 +160,7 @@ header ul a strong {
 }
 
 section {
-  width:70%;
+  width:500px;
   float:right;
   padding-bottom:50px;
 }
@@ -212,7 +212,7 @@ footer {
   }
   
   header ul {
-    position:absolute;    
+    position:absolute;
     right:50px;
     top:52px;
   }
@@ -252,7 +252,4 @@ footer {
     font-size:12pt;
     color:#444;
   }
-}
-#menuOptions li ul{
-	padding-left:20px;
 }
