@@ -11,6 +11,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = dump_viewer
 TEMPLATE = app
 
+# remove following 4 lines to disable kdelibs
+
 SOURCES += main.cpp\
         mainwindow.cpp \
     torrent_hash_convert.cpp \

@@ -1,14 +1,15 @@
 #include <QtCore>
 #include <QtGui>
 #include <QtWebKit>
+#include <kfilterdev.h>
+#include <ktar.h>
 #include <zlib.h>
-
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include "torrent_hash_convert.h"
 #include "Archive.h"
 #include "ArchiveImpl.h"
 #include "quazip/quagzipfile.h"
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include "torrent_hash_convert.h"
 
 enum {
     COLUMN_ID,
@@ -20,35 +21,39 @@ enum {
     COLUMN_DOWNLOADS,
     COLUMN_UPDATED
 };
-
-QByteArray gUncompress(const QByteArray &data) {
+QByteArray gUncompress(const QByteArray &data)
+{
     if(data.size()<=4){
         qWarning("gUncompress: Input data is truncated");
         return QByteArray();
     }
     QByteArray result;
+
     int ret;
     z_stream strm;
     static const int CHUNK_SIZE = 1024;
     char out[CHUNK_SIZE];
-    /* allocate inflate state */
-    strm.zalloc = Z_NULL;
-    strm.zfree = Z_NULL;
-    strm.opaque = Z_NULL;
-    strm.avail_in = data.size();
-    strm.next_in = (Bytef*)(data.data());
-    ret = inflateInit2(&strm,15+32); // gzip decoding
-    if (ret != Z_OK) {
-        return QByteArray();
-    }
-    // run inflate()
-    do {
-        strm.avail_out = CHUNK_SIZE;
-        strm.next_out = (Bytef*)(out);
 
-        ret = inflate(&strm, Z_NO_FLUSH);
-        Q_ASSERT(ret != Z_STREAM_ERROR);  // state not clobbered
-        switch (ret){
+    /* allocate inflate state */
+    strm.zalloc=Z_NULL;
+    strm.zfree=Z_NULL;
+    strm.opaque=Z_NULL;
+    strm.avail_in=data.size();
+    strm.next_in=(Bytef*)(data.data());
+
+    ret=inflateInit2(&strm,15+32); // gzip decoding
+    if(ret!=Z_OK)
+        return QByteArray();
+
+    // run inflate()
+    do{
+        strm.avail_out=CHUNK_SIZE;
+        strm.next_out=(Bytef*)(out);
+
+        ret=inflate(&strm, Z_NO_FLUSH);
+        Q_ASSERT(ret!=Z_STREAM_ERROR);  // state not clobbered
+
+        switch(ret){
             case Z_NEED_DICT:
                 ret = Z_DATA_ERROR;     // and fall through
             case Z_DATA_ERROR:
@@ -56,33 +61,33 @@ QByteArray gUncompress(const QByteArray &data) {
                 (void)inflateEnd(&strm);
                 return QByteArray();
         }
-        result.append(out, CHUNK_SIZE - strm.avail_out);
-    } while (strm.avail_out == 0);
+        result.append(out,CHUNK_SIZE-strm.avail_out);
+    } while(strm.avail_out==0);
+
     // clean up and return
     inflateEnd(&strm);
     return result;
 }
+bool gUncompress(QFile* in,QFile* out)
+{
+        if(!in->open(QIODevice::ReadOnly)||!out->open(QIODevice::WriteOnly|QIODevice::Truncate))
+            return false;
+        gzFile gz=gzdopen(in->handle(),"rb");
+        if(gz==NULL)
+            return false;
 
-bool gUncompress(QFile* in,QFile* out) {
-    if(!in->open(QIODevice::ReadOnly) || !out->open(QIODevice::WriteOnly|QIODevice::Truncate)) {
-        return false;
-    }
-    gzFile gz = gzdopen(in->handle(), "rb");
-    if (gz == NULL) {
-        return false;
-    }
-    static const int buffer_size = 0x40000;
-    char buffer[buffer_size];
-    memset(buffer, 0, buffer_size);
-    int read = 0;
-    do {
-        out->write(QByteArray(buffer, read*sizeof(char)));
-        read = qMin(gzread(gz, buffer, buffer_size), buffer_size);
-    } while(read > 0);
-    gzclose(gz);
-    return true;
+        static const int buffer_size = 0x40000;
+        char buffer[buffer_size];
+        memset(buffer,0,buffer_size);
+        int read=0;
+        do{
+            out->write(QByteArray(buffer,read*sizeof(char)));
+            read=qMin(gzread(gz,buffer,buffer_size),buffer_size);
+        } while(read>0);
+        gzclose(gz);
+
+        return true;
 }
-
 MainWindow* mainWindow() {
     return static_cast<MainWindow*>(QApplication::activeWindow());
 }
@@ -523,14 +528,12 @@ void MainWindow::on_unpackAction_triggered() {
         }
         QFile outputFile(path);
         inputFile.close();
-        if (gUncompress(&inputFile,&outputFile)) {
+        if (gUncompress(&inputFile,&outputFile))
             settings().setValue("final_txt", path);
-        } else {
+        else
             QErrorMessage::qtHandler()->showMessage(tr("Error openning output database file!"));
-        }
-    } else {
+    } else
         QErrorMessage::qtHandler()->showMessage(tr("Error openning input database file!"));
-    }
 }
 
 void MainWindow::addLines(QStringList_ptr lines) {
