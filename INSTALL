@@ -1,0 +1,44 @@
+======================
+ Torrents dump viewer
+======================
+
+Depends on Qt and optionaly kdelibs.
+
+Build steps
+-----------
+
+Debian Linux:
+$ sudo aptitude install g++ qmake libqt4-dev kdelibs5-dev
+$ qmake
+$ make
+
+Windows:
+* Visual Studio 2010 Express
+  http://www.microsoft.com/visualstudio/eng/downloads#d-2010-express
+* Qt, the cross-platform application framework
+  Download Qt Creator for windows, MSVC 2010
+  I use file QtSdk-offline-win-x86-v1_2_1.exe md5=ef3c33cb8c5aa3104a83cec592da8cc1
+  Newer versions ave available on http://qt-project.org/downloads
+* Optionaly kdelibs. It is used to uncompress .bz2 file on the fly.
+  http://windows.kde.org/download.php
+  Select kdelibs package while installing.
+* If you do not want on the fly .bz2 uncompression,
+  open dump_viewer.pro and remove following lines:
+        DEFINES += KDE_EXISTS
+        win32:LIBS += "-LC:\\ProgramData\\KDE\\lib"
+        LIBS += -lkdecore
+        win32:INCLUDEPATH += "C:\\ProgramData\\KDE\\include"
+* Double-click dump_viewer.pro, select build mode MSVC 2010, Release or Debug
+* Build
+* Copy following files from C:\ProgramData\KDE\bin to build dir:
+        QtCore4.dll      QtGui4.dll       QtWebKit.dll
+  If you use kdelibs, then copy following files as well:
+        QtDBus4.dll      QtNetwork4.dll   QtXml4.dll
+        dbus-1.dll       kdecore.dll      libintl.dll
+        kdewin.dll       iconv.dll        libbzip2.dll
+        libsqlite.dll
+  Copy following files from C:\Windows\System32 to build dir:
+        msvcp100.dll     msvcr100.dll
+
+Apple: do not use
+

@@ -1,0 +1,18 @@
+Раздачи на торрентах:
+http://rutracker.org/forum/viewtopic.php?t=4546210
+http://opensharing.org/torrent/105846/
+http://rutor.org/torrent/306663
+magnet:?xt=urn:btih:KY33A26BTGUNAE2D3YWET3UYYGFPP4QU&dn=release&tr=http%3a%2f%2fannounce.opensharing.org%3a2710%2fannounce&tr=udp%3a%2f%2ftracker.openbittorrent.com%3a80&tr=udp%3a%2f%2ftracker.publicbt.com%3a80%2fannounce
+
+Посты:
+http://habrahabr.ru/post/195454/
+
+Бинарники программы и таблица раздач на bitbucket:
+https://bitbucket.org/ratnik/dump_viewer/downloads
+
+Описания раздач большим архивом:
+https://mega.co.nz/#!iQ0jiBhR!M9V1zSwrXdSabefc8sC1fUb1lSJRNjdnpoCNfZ_kebo
+
+Бинарник под OS/2 от @dbanet:
+http://anonymousdelivers.us/68156
+

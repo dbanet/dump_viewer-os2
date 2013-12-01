@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>646</width>
+    <height>455</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Поиск торрентов</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1,0,0,0,0">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Название включает</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="patternLineEdit"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>макс.находок</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="limitSpinBox">
+        <property name="maximum">
+         <number>99999999</number>
+        </property>
+        <property name="value">
+         <number>500</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="searchButton">
+        <property name="text">
+         <string>Найти</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="stopButton">
+        <property name="text">
+         <string>Стоп</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="resultsVerticalLayout" stretch="1,1">
+      <item>
+       <widget class="QTableWidget" name="resultsTableWidget">
+        <property name="contextMenuPolicy">
+         <enum>Qt::ActionsContextMenu</enum>
+        </property>
+        <column>
+         <property name="text">
+          <string>номер</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>название</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>размер</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>сиды</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>пиры</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>хеш</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>загрузок</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>обновлено</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWebView" name="descriptionWebView" native="true">
+        <property name="url" stdset="0">
+         <url>
+          <string>about:blank</string>
+         </url>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>646</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <addaction name="selectAction"/>
+    <addaction name="unpackAction"/>
+    <addaction name="selectDescriptionAction"/>
+    <addaction name="exitAction"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>Вид</string>
+    </property>
+    <addaction name="base32Action"/>
+    <addaction name="cp1251Action"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>Торрент</string>
+    </property>
+    <addaction name="action_copy_rutracker_link"/>
+    <addaction name="action_open_rutracker"/>
+    <addaction name="action_copy_magnet"/>
+    <addaction name="action_open_magnet"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+  </widget>
+  <action name="unpackAction">
+   <property name="text">
+    <string>Распаковать базу</string>
+   </property>
+  </action>
+  <action name="exitAction">
+   <property name="text">
+    <string>Выход</string>
+   </property>
+  </action>
+  <action name="selectAction">
+   <property name="text">
+    <string>Выбрать базу</string>
+   </property>
+  </action>
+  <action name="base32Action">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>base32-хеши</string>
+   </property>
+  </action>
+  <action name="cp1251Action">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>кодировка cp1251</string>
+   </property>
+  </action>
+  <action name="selectDescriptionAction">
+   <property name="text">
+    <string>Выбрать базу описаний</string>
+   </property>
+  </action>
+  <action name="action_copy_rutracker_link">
+   <property name="text">
+    <string>Копировать ссылку на Rutracker</string>
+   </property>
+  </action>
+  <action name="action_open_rutracker">
+   <property name="text">
+    <string>Открыть страницу на Rutracker</string>
+   </property>
+  </action>
+  <action name="action_copy_magnet">
+   <property name="text">
+    <string>Копировать magnet</string>
+   </property>
+  </action>
+  <action name="action_open_magnet">
+   <property name="text">
+    <string>Открыть magnet</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QWebView</class>
+   <extends>QWidget</extends>
+   <header>QtWebKit/QWebView</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
