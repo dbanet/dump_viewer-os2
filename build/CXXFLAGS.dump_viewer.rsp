@@ -1,0 +1,6 @@
+-Zomf
+-march=i486
+-mtune=generic
+-s
+-O2
+-Wall
